@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> 학생 조회 </title>
+</head>
+<body>
+	
+	<h2>학생 추가</h2>
+	<form action="/Class01/student" method="post">
+		I　D: <input type="text" name="studentId"><br>
+		과목: <input type="text" name="subject"><br>
+		성적: <input type="number" name="grade">
+		<button type="submit"> 추가! </button>
+	</form><hr>
+	
+	<h2>학생 조회</h2>
+	<form action="/Class01/student" method="get">
+		<input type="hidden" name="action" value="viewStudent">
+		I　D: <input type="text" name="studentId">
+		<button type="submit"> 조회! </button>
+	</form><hr>
+	
+	<h2>성적 계산</h2>
+	<form action="/Class01/student" method="get">
+		<input type="hidden" name="action" value="calculateSubject">
+		과목: <input type="text" name="subject">
+		<button type="submit"> 계산! </button>
+	</form><hr>
+	
+</body>
+</html>
