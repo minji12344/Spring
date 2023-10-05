@@ -18,7 +18,7 @@
 		<p>성인입니다.</p>
 	</c:if>
 	
-	<c:set var="numbers" value="1,2,3,4,5,6,7,8,9"/>
+	<c:set var="numbers" value="1,2,3,4,5"/>
 	
 	<ul>
 		<c:forEach items="${numbers}" var="number">
@@ -53,8 +53,8 @@
 	<%
 		request.setAttribute("people", people);
 	%>
-	<c:forEach items="${people.entrySet()}" var="entry">
-		<c:if test="${entry.value} >= 20">
+	<c:forEach var="entry" items="${people.entrySet()}">
+		<c:if test="${entry.value >= 20}">
 			<p>${entry.key}, ${entry.value}</p>
 		</c:if>
 	</c:forEach>
