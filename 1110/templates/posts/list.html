@@ -1,0 +1,35 @@
+<div class="my-5">
+	<h1 class="text-center">게시글</h1>
+	<div id="div_posts"></div>
+</div>
+<script id="temp_posts" type="x-handlebars-template">
+	<table class="table my-5">
+	{{#each .}}
+		<tr>
+			<td>
+				<div class="ellipsis">
+					<a href="/posts/read?pid={{pid}}">{{title}}</a>
+				</div>
+			</td>
+			<td>{{uname}} ({{writer}})</td>
+			<td>{{fmtdate}}</td>
+		</tr>
+	{{/each}}
+	</table>
+</script>
+
+<script>
+	getPosts();
+	
+	function getPosts(){
+		$.ajax({
+			type:"get",
+			url:"/posts/list.json",
+			success: function(data){
+				//console.log(data);
+				const temp=Handlebars.compile($("#temp_posts").html());
+				$("#div_posts").html(temp(data));
+			}
+		})
+	}
+</script>
